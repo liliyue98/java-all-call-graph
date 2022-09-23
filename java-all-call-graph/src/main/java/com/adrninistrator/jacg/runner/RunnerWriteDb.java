@@ -43,6 +43,12 @@ public class RunnerWriteDb extends AbstractRunner {
 
     private static final Logger logger = LoggerFactory.getLogger(RunnerWriteDb.class);
 
+    // 方法注解信息列表
+    private  List<AnnotationInfo4Write> allMethodAnnotationInfoList = new ArrayList<>();
+
+    // 类注解信息列表
+    private  List<AnnotationInfo4Write> allClassAnnotationInfoList = new ArrayList<>();
+
     // 当类名为以下前缀时，才处理
     private Set<String> allowedClassPrefixSet;
 
@@ -917,6 +923,7 @@ public class RunnerWriteDb extends AbstractRunner {
             }
         }
 
+        addAnnotationInfoList(methodOrClass,annotationInfo4WriteList);
         annotationInfo4WriteList.clear();
         return success;
     }
@@ -1191,6 +1198,22 @@ public class RunnerWriteDb extends AbstractRunner {
 
     public void setJavaCGRecordAll(boolean javaCGRecordAll) {
         this.javaCGRecordAll = javaCGRecordAll;
+    }
+
+    public List<AnnotationInfo4Write> getMethodAnnotationInfoList() {
+        return allMethodAnnotationInfoList;
+    }
+
+    public List<AnnotationInfo4Write> getClassAnnotationInfoList() {
+        return allClassAnnotationInfoList;
+    }
+
+    public void addAnnotationInfoList(boolean methodOrClass, List<AnnotationInfo4Write> annotationInfo4WriteList) {
+        if (methodOrClass) {
+            allMethodAnnotationInfoList.addAll(annotationInfo4WriteList);
+        } else {
+            allClassAnnotationInfoList.addAll(annotationInfo4WriteList);
+        }
     }
 }
 

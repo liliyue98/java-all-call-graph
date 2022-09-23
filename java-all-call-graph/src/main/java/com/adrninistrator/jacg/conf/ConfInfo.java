@@ -1,12 +1,14 @@
 package com.adrninistrator.jacg.conf;
 
+import java.io.Serializable;
+
 /**
  * @author adrninistrator
  * @date 2021/6/17
  * @description:
  */
 
-public class ConfInfo {
+public class ConfInfo implements Serializable {
 
     private String appName;
 
