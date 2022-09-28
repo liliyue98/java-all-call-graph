@@ -96,4 +96,8 @@ public class RunnerGenAllGraph4CallerSupportIgnorely extends RunnerGenAllGraph4C
         }
         this.otherConfigSetMap.put(otherConfigFileUseSetEnum.getFileName(), configSet);
     }
+
+    public Map<String, String> getSimpleClassNameMap() {
+        return this.simpleClassNameMap;
+    }
 }
